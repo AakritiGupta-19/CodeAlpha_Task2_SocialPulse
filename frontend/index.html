@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SocialPulse • Moments, Stories & Connections</title>
+  <meta name="description"
+    content="A modern social media platform combining the best of Instagram, TikTok, and modern social platforms. Share photos, watch reels, chat, discover creators and connect." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/feed.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+
+<body>
+
+  <!-- ==========================================
+       APP LAUNCH SPLASH SCREEN (Instagram/App style)
+       Plays 2.5s on open/refresh with brand motion effects
+       ========================================== -->
+  <div id="splash-screen" class="splash-screen" role="dialog" aria-modal="true" aria-label="SocialPulse Launch">
+    <div class="splash-ambient-glow"></div>
+    <div class="splash-content">
+      <div class="splash-logo-container">
+        <div class="splash-pulse-wave splash-pulse-1"></div>
+        <div class="splash-pulse-wave splash-pulse-2"></div>
+        <div class="splash-pulse-wave splash-pulse-3"></div>
+        <div class="splash-logo-badge">
+          <svg viewBox="0 0 24 24" class="splash-icon-svg" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 12h3.2l2.6-7.5 4.4 15 3.8-11 2.3 5.5h2.7" />
+          </svg>
+        </div>
+      </div>
+      <div class="splash-brand-wrap">
+        <h1 class="splash-title">SocialPulse</h1>
+        <div class="splash-tagline">
+          <span>CONNECT</span>
+          <span class="splash-dot">•</span>
+          <span>DISCOVER</span>
+          <span class="splash-dot">•</span>
+          <span>INSPIRE</span>
+        </div>
+      </div>
+      <div class="splash-bottom-indicator">
+        <div class="splash-loader-bar">
+          <div class="splash-loader-progress"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="app-container">
+
+    <!-- ==========================================
+         LEFT SIDEBAR NAVIGATION (Desktop)
+         ========================================== -->
+    <aside class="sidebar">
+      <div>
+        <div class="logo-area" title="SocialPulse Home">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2.3"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 12h3.2l2.6-7.5 4.4 15 3.8-11 2.3 5.5h2.7" />
+            </svg>
+          </div>
+          <span class="logo-text">SocialPulse</span>
+        </div>
+
+        <div class="connection-status-pill" id="connection-status-pill" title="Current Connection Mode">
+          <span class="status-dot"></span>
+          <span class="status-text">Preview Mode</span>
+        </div>
+
+        <ul class="nav-links">
+          <li class="nav-item active" data-nav="feed" id="nav-feed">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            </span>
+            <span>Home</span>
+          </li>
+          <li class="nav-item" data-nav="explore" id="nav-explore">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+              </svg>
+            </span>
+            <span>Explore</span>
+          </li>
+          <li class="nav-item" data-nav="reels" id="nav-reels">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M7 2v20" />
+                <path d="M17 2v20" />
+                <path d="M2 12h20" />
+                <path d="M2 7h5" />
+                <path d="M2 17h5" />
+                <path d="M17 17h5" />
+                <path d="M17 7h5" />
+              </svg>
+            </span>
+            <span>Reels</span>
+          </li>
+          <li class="nav-item" data-nav="messages" id="nav-messages">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" />
+              </svg>
+            </span>
+            <span>Messages</span>
+          </li>
+          <li class="nav-item" data-nav="notifications" id="nav-notifications">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+                <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+              </svg>
+            </span>
+            <span>Notifications</span>
+            <span class="nav-badge" id="notif-badge"></span>
+          </li>
+          <li class="nav-item" data-nav="create" id="nav-create">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="3" rx="4" />
+                <line x1="12" x2="12" y1="8" y2="16" />
+                <line x1="8" x2="16" y1="12" y2="12" />
+              </svg>
+            </span>
+            <span>Create</span>
+          </li>
+          <li class="nav-item" data-nav="profile" id="nav-profile">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80"
+              alt="Avatar" class="nav-avatar current-user-avatar" />
+            <span>Profile</span>
+          </li>
+          <li class="nav-item" data-nav="ai-assistant" id="nav-ai-assistant" style="margin-top: 6px;">
+            <span class="nav-icon"
+              style="background: linear-gradient(135deg, #a855f7, #ec4899); border-radius: 8px; width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(168, 85, 247, 0.4);">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z" />
+              </svg>
+            </span>
+            <span>SocialPulse AI</span>
+            <span class="nav-badge-ai">PRO</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- User Account Box / Auth trigger -->
+      <div class="sidebar-bottom">
+        <div class="current-user-card" id="sidebar-user-card" style="display: none;">
+          <div class="user-info-mini">
+            <img src="" alt="User" class="current-user-avatar" />
+            <div class="user-names">
+              <span class="username current-user-name">@user</span>
+              <span class="fullname current-user-fullname">Full Name</span>
+            </div>
+          </div>
+          <button id="sidebar-logout-btn" title="Log Out"
+            style="display: flex; align-items: center; justify-content: center; background: none; border: none; color: var(--text-secondary); cursor: pointer; opacity: 0.7; transition: opacity 0.2s;"
+            onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <polyline points="16 17 21 12 16 7" />
+              <line x1="21" x2="9" y1="12" y2="12" />
+            </svg>
+          </button>
+        </div>
+
+        <button class="btn-primary" id="sidebar-auth-btn" style="width: 100%; border-radius: var(--radius-md);">
+          Log In / Sign Up
+        </button>
+      </div>
+    </aside>
+
+    <!-- ==========================================
+         MAIN VIEWPORT
+         ========================================== -->
+    <main class="main-content">
+
+      <!-- VIEW 1: HOME FEED VIEW -->
+      <section class="view-container active-view" id="feed-view">
+        <div class="feed-layout">
+          <!-- Main Stream (Tabs + Stories + Posts) -->
+          <div class="feed-stream">
+            <!-- Feed Tabs: For You vs Following -->
+            <div class="feed-tabs-bar">
+              <button class="feed-tab-btn active" data-tab="for_you">For You</button>
+              <button class="feed-tab-btn" data-tab="following">Following</button>
+            </div>
+
+            <!-- Stories Bar -->
+            <div class="stories-bar" id="stories-bar"></div>
+
+            <!-- Posts List -->
+            <div id="feed-stream"></div>
+          </div>
+
+          <!-- Right Sidebar: Suggestions (Desktop) -->
+          <aside class="suggestions-sidebar">
+            <!-- SocialPulse AI Co-Pilot Widget -->
+            <div class="ai-home-widget" id="ai-home-widget" onclick="Profile.openAiAssistant();">
+              <div class="ai-widget-header">
+                <div class="ai-widget-avatar-wrap">
+                  ✨
+                </div>
+                <div>
+                  <div class="ai-widget-title">SocialPulse AI Co-Pilot</div>
+                  <div class="ai-widget-subtitle">● Ready to assist</div>
+                </div>
+                <button class="ai-widget-open-chip"
+                  onclick="event.stopPropagation(); Profile.openAiAssistant();">Chat</button>
+              </div>
+              <p class="ai-widget-desc">
+                Need viral post captions, reel ideas, or engagement advice? Ask your AI assistant anytime.
+              </p>
+              <div class="ai-widget-chips">
+                <span class="ai-chip-pill"
+                  onclick="event.stopPropagation(); Profile.openAiAssistant('Write a catchy Instagram caption for a travel photo');">✨
+                  Captions</span>
+                <span class="ai-chip-pill"
+                  onclick="event.stopPropagation(); Profile.openAiAssistant('Give me 5 trending reel ideas for this week');">🎬
+                  Reel Ideas</span>
+                <span class="ai-chip-pill"
+                  onclick="event.stopPropagation(); Profile.openAiAssistant('How do I grow my follower engagement organically?');">📈
+                  Growth</span>
+              </div>
+            </div>
+
+            <div class="suggestions-header">
+              <span class="suggestions-title">Suggested for you</span>
+              <button style="font-size: 12px; font-weight: 700; color: #fff;" onclick="App.navigate('explore')">See
+                All</button>
+            </div>
+
+            <div class="suggestions-list" id="suggestions-list"></div>
+
+            <footer class="footer-links">
+              <p>© 2026 SOCIALPULSE • MODERN SOCIAL PLATFORM</p>
+              <p>Built with Express.js, SQLite & Vanilla JavaScript</p>
+            </footer>
+          </aside>
+        </div>
+      </section>
+
+      <!-- VIEW 2: EXPLORE & SEARCH VIEW -->
+      <section class="view-container" id="explore-view">
+        <div style="max-width: 935px; margin: 0 auto;">
+          <div style="position: relative; margin-bottom: 28px;">
+            <input type="text" id="explore-search-input" placeholder="🔍 Search creators, friends, or usernames..."
+              style="width: 100%; padding: 14px 20px; font-size: 15px; border-radius: var(--radius-full); background: var(--bg-secondary); border: 1px solid var(--border-light);" />
+            <div id="explore-search-results" style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+            </div>
+          </div>
+
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; color: var(--text-secondary);">Trending
+            Moments</h3>
+          <div class="posts-grid" id="explore-grid"></div>
+        </div>
+      </section>
+
+      <!-- VIEW 3: REELS / SHORT VIDEOS VIEW -->
+      <section class="view-container" id="reels-view">
+        <div class="reels-wrapper" id="reels-container"></div>
+      </section>
+
+      <!-- VIEW 4: DIRECT MESSAGING (DMs) VIEW -->
+      <section class="view-container" id="messages-view">
+        <div class="chat-container">
+          <!-- Left: Conversation list -->
+          <div class="chat-sidebar-pane">
+            <div class="chat-sidebar-header">Direct Messages</div>
+            <div class="chat-threads-scroll" id="chat-conversations-list"></div>
+          </div>
+
+          <!-- Right: Active Chat Window -->
+          <div class="chat-main-pane" id="chat-active-window">
+            <div class="chat-header" id="chat-window-header">
+              <span style="color: var(--text-muted); font-size: 14px;">Select a conversation or creator to start
+                chatting</span>
+            </div>
+            <div class="chat-messages-stream" id="chat-messages-stream"></div>
+            <form class="chat-input-bar" id="chat-input-form">
+              <input type="text" id="chat-message-input" placeholder="Write a message..." autocomplete="off" />
+              <button type="submit" class="btn-primary" style="padding: 10px 18px;">Send</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 5: PROFILE VIEW -->
+      <section class="view-container" id="profile-view"></section>
+
+    </main>
+
+    <!-- ==========================================
+         MOBILE BOTTOM NAVIGATION BAR
+         ========================================== -->
+    <nav class="bottom-nav">
+      <button class="bottom-nav-item" data-nav="feed" title="Home">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+      </button>
+      <button class="bottom-nav-item" data-nav="explore" title="Explore">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+        </svg>
+      </button>
+      <button class="bottom-nav-item" data-nav="reels" title="Reels">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+          <path d="M7 2v20" />
+          <path d="M17 2v20" />
+          <path d="M2 12h20" />
+          <path d="M2 7h5" />
+          <path d="M2 17h5" />
+          <path d="M17 17h5" />
+          <path d="M17 7h5" />
+        </svg>
+      </button>
+      <button class="bottom-nav-item" data-nav="messages" title="Messages">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" />
+        </svg>
+      </button>
+      <button class="bottom-nav-item" data-nav="create" title="Create">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect width="18" height="18" x="3" y="3" rx="4" />
+          <line x1="12" x2="12" y1="8" y2="16" />
+          <line x1="8" x2="16" y1="12" y2="12" />
+        </svg>
+      </button>
+      <button class="bottom-nav-item" data-nav="profile" title="Profile">
+        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80"
+          alt="Avatar" class="nav-avatar current-user-avatar" style="width: 24px; height: 24px;" />
+      </button>
+    </nav>
+
+  </div>
+
+  <!-- ==========================================
+       MODAL 1: CREATE POST & AI CAPTION
+       ========================================== -->
+  <div class="modal-backdrop" id="create-post-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Create New Post</h3>
+        <button class="modal-close-btn" id="close-create-modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="create-post-form" style="display: flex; flex-direction: column; gap: 16px;">
+          <!-- Dropzone -->
+          <div id="create-dropzone"
+            style="border: 2px dashed var(--border-light); border-radius: var(--radius-md); padding: 36px 20px; text-align: center; cursor: pointer; transition: border-color 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;">
+            <span style="font-size: 38px;">🖼️</span>
+            <p style="font-weight: 600; font-size: 15px;">Drag & drop a photo here</p>
+            <p style="font-size: 12px; color: var(--text-muted);">or click to select from your device</p>
+          </div>
+
+          <input type="file" id="post-file-input" accept="image/*" style="display: none;" />
+          <div id="create-post-preview-container" style="display: none;"></div>
+
+          <div>
+            <label style="font-size: 12px; color: var(--text-secondary); margin-bottom: 6px; display: block;">Or paste
+              an image link:</label>
+            <input type="url" id="post-url-input" placeholder="https://images.unsplash.com/..."
+              style="width: 100%; padding: 10px 14px; font-size: 13px;" />
+          </div>
+
+          <!-- Caption Input with AI Assistant Button -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <label style="font-size: 12px; color: var(--text-secondary);">Write a caption:</label>
+              <button type="button" id="ai-caption-btn"
+                style="font-size: 11px; font-weight: 700; color: #f09433; display: inline-flex; align-items: center; gap: 4px;">
+                ✨ AI Generate Caption
+              </button>
+            </div>
+            <textarea id="post-caption-input" rows="3" placeholder="Write a caption... add #hashtags"
+              style="width: 100%; padding: 12px 14px; font-size: 14px; resize: none;"></textarea>
+          </div>
+
+          <!-- Visual Filter Selection for Post -->
+          <div>
+            <label style="font-size: 12px; color: var(--text-secondary); margin-bottom: 6px; display: block;">Photo
+              Filter:</label>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="post-filter-pills">
+              <button type="button" class="filter-pill active" data-filter="normal">Normal</button>
+              <button type="button" class="filter-pill" data-filter="clarendon">Clarendon</button>
+              <button type="button" class="filter-pill" data-filter="vintage">Vintage</button>
+              <button type="button" class="filter-pill" data-filter="golden">Golden Hour</button>
+              <button type="button" class="filter-pill" data-filter="cyberpunk">Cyberpunk</button>
+              <button type="button" class="filter-pill" data-filter="noir">Noir</button>
+            </div>
+            <input type="hidden" id="post-filter-input" value="normal" />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div>
+              <label style="font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; display: block;">📍
+                Location:</label>
+              <input type="text" id="post-location-input" placeholder="e.g. Tokyo, Japan"
+                style="width: 100%; padding: 9px 12px; font-size: 12px;" />
+            </div>
+            <div>
+              <label style="font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; display: block;">🎵 Music
+                Track:</label>
+              <input type="text" id="post-music-input" placeholder="e.g. As It Was • Harry Styles"
+                style="width: 100%; padding: 9px 12px; font-size: 12px;" />
+            </div>
+          </div>
+
+          <button type="submit" id="submit-post-btn" class="btn-primary" style="padding: 12px; font-size: 15px;">
+            Share
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 2: NOTIFICATIONS CENTER
+       ========================================== -->
+  <div class="modal-backdrop" id="notifications-modal">
+    <div class="modal-box" style="max-width: 480px;">
+      <div class="modal-header">
+        <h3 class="modal-title">🔔 Notifications</h3>
+        <button class="modal-close-btn" id="close-notifications-modal">✕</button>
+      </div>
+      <div class="modal-body" style="padding: 0; max-height: 60vh; overflow-y: auto;" id="notifications-list-container">
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 3: USERS LIST (FOLLOWERS / FOLLOWING)
+       ========================================== -->
+  <div class="modal-backdrop" id="users-list-modal">
+    <div class="modal-box" style="max-width: 420px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="users-list-title">Users</h3>
+        <button class="modal-close-btn"
+          onclick="document.getElementById('users-list-modal').classList.remove('open')">✕</button>
+      </div>
+      <div class="modal-body" style="padding: 0; max-height: 55vh; overflow-y: auto;" id="users-list-container">
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 4: CREATOR ANALYTICS DASHBOARD
+       ========================================== -->
+  <div class="modal-backdrop" id="creator-analytics-modal">
+    <div class="modal-box" style="max-width: 520px;">
+      <div class="modal-header">
+        <h3 class="modal-title">📊 Creator Analytics</h3>
+        <button class="modal-close-btn"
+          onclick="document.getElementById('creator-analytics-modal').classList.remove('open')">✕</button>
+      </div>
+      <div class="modal-body" id="analytics-content-box"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 6: SETTINGS AND ACTIVITY (Instagram Menu)
+       ========================================== -->
+  <div class="modal-backdrop" id="settings-activity-modal">
+    <div class="modal-box settings-drawer"
+      style="max-width: 500px; max-height: 88vh; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+      <div class="settings-header">
+        <button class="settings-back-btn" onclick="Profile.closeSettingsAndActivity()"><svg viewBox="0 0 24 24"
+            width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+          </svg></button>
+        <h3 class="settings-title">Settings and activity</h3>
+        <button class="modal-close-btn" onclick="Profile.closeSettingsAndActivity()">✕</button>
+      </div>
+      <div class="settings-body" style="overflow-y: auto; flex: 1; padding: 12px 16px 30px;">
+        <!-- Search bar -->
+        <div class="settings-search-box">
+          <input type="text" id="settings-search-input" placeholder="Search settings and activity..."
+            oninput="Profile.filterSettings(this.value)" />
+        </div>
+
+        <!-- Section: Your account -->
+        <div class="settings-section">
+          <div class="settings-section-header">Your account</div>
+          <div class="settings-account-card" onclick="Profile.openAccountCenter()">
+            <div class="account-card-left">
+              <div class="account-card-icon">👤</div>
+              <div>
+                <div class="account-card-title">Accounts Center</div>
+                <div class="account-card-sub">Password, security, personal details, ad preferences</div>
+              </div>
+            </div>
+            <div class="settings-chevron">›</div>
+          </div>
+        </div>
+
+        <!-- Section: How you use SocialPulse -->
+        <div class="settings-section">
+          <div class="settings-section-header">How you use SocialPulse</div>
+
+          <div class="settings-row" onclick="Profile.openActivityTab('saved')">
+            <div class="settings-row-left">
+              <span class="settings-icon">🔖</span>
+              <span class="settings-label">Saved</span>
+            </div>
+            <div class="settings-row-right">
+              <span class="settings-badge" id="settings-saved-count">2</span>
+              <span class="settings-chevron">›</span>
+            </div>
+          </div>
+
+          <div class="settings-row" onclick="Profile.openActivityTab('archive')">
+            <div class="settings-row-left">
+              <span class="settings-icon">🕒</span>
+              <span class="settings-label">Archive</span>
+            </div>
+            <div class="settings-row-right">
+              <span class="settings-chevron">›</span>
+            </div>
+          </div>
+
+          <!-- Highlighted: Your Activity -->
+          <div class="settings-row settings-highlight" onclick="Profile.openActivityModal()">
+            <div class="settings-row-left">
+              <span class="settings-icon">📈</span>
+              <div>
+                <span class="settings-label" style="font-weight: 700; color: #fff;">Your activity</span>
+                <div style="font-size: 11px; color: var(--text-secondary);">Likes, comments, saved, deleted & more</div>
+              </div>
+            </div>
+            <div class="settings-row-right">
+              <span class="settings-pill-tag">Activities</span>
+              <span class="settings-chevron">›</span>
+            </div>
+          </div>
+
+          <div class="settings-row" onclick="Profile.openNotificationSettings()">
+            <div class="settings-row-left">
+              <span class="settings-icon">🔔</span>
+              <span class="settings-label">Notifications</span>
+            </div>
+            <div class="settings-row-right">
+              <span class="settings-chevron">›</span>
+            </div>
+          </div>
+
+          <div class="settings-row" onclick="Profile.openActivityTab('time')">
+            <div class="settings-row-left">
+              <span class="settings-icon">⏱️</span>
+              <span class="settings-label">Time management</span>
+            </div>
+            <div class="settings-row-right">
+              <span class="settings-value-hint">42m daily avg</span>
+              <span class="settings-chevron">›</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Who can see your content -->
+        <div class="settings-section">
+          <div class="settings-section-header">Who can see your content</div>
+
+          <div class="settings-row">
+            <div class="settings-row-left">
+              <span class="settings-icon">🔒</span>
+              <span class="settings-label">Account privacy</span>
+            </div>
+            <div class="settings-row-right">
+              <label class="toggle-switch">
+                <input type="checkbox" id="setting-privacy-toggle"
+                  onchange="Profile.toggleAccountPrivacy(this.checked)" />
+                <span class="toggle-slider"></span>
+              </label>
+              <span id="setting-privacy-label"
+                style="font-size: 12px; color: var(--text-muted); margin-left: 6px;">Public</span>
+            </div>
+          </div>
+
+          <div class="settings-row" onclick="Profile.openCloseFriendsModal()">
+            <div class="settings-row-left">
+              <span class="settings-icon">⭐</span>
+              <span class="settings-label">Close Friends</span>
+            </div>
+            <div class="settings-row-right">
+              <span class="settings-badge" id="settings-close-friends-count">2</span>
+              <span class="settings-chevron">›</span>
+            </div>
+          </div>
+
+          <div class="settings-row" onclick="Profile.openBlockedModal()">
+            <div class="settings-row-left">
+              <span class="settings-icon">🚫</span>
+              <span class="settings-label">Blocked</span>
+            </div>
+            <div class="settings-row-right">
+              <span class="settings-badge">0</span>
+              <span class="settings-chevron">›</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: How others can interact with you -->
+        <div class="settings-section">
+          <div class="settings-section-header">How others can interact with you</div>
+
+          <div class="settings-row" onclick="App.navigate('messages'); Profile.closeSettingsAndActivity();">
+            <div class="settings-row-left">
+              <span class="settings-icon">💬</span>
+              <span class="settings-label">Messages and story replies</span>
+            </div>
+            <div class="settings-row-right">
+              <span class="settings-chevron">›</span>
+            </div>
+          </div>
+
+          <div class="settings-row">
+            <div class="settings-row-left">
+              <span class="settings-icon">🤍</span>
+              <span class="settings-label">Hide like and share counts</span>
+            </div>
+            <div class="settings-row-right">
+              <label class="toggle-switch">
+                <input type="checkbox" id="setting-hide-likes-toggle"
+                  onchange="Profile.toggleHideLikes(this.checked)" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: More info and support -->
+        <div class="settings-section">
+          <div class="settings-section-header">More info and support</div>
+
+          <div class="settings-row" onclick="Profile.openAiAssistant()">
+            <div class="settings-row-left">
+              <span class="settings-icon">🤖</span>
+              <div>
+                <span class="settings-label" style="font-weight: 700;">SocialPulse AI Assistant</span>
+                <div style="font-size: 11px; color: var(--text-secondary);">Ask advice, caption help and tips</div>
+              </div>
+            </div>
+            <div class="settings-row-right">
+              <span class="status-dot" style="background: #3b82f6;"></span>
+              <span class="settings-chevron">›</span>
+            </div>
+          </div>
+
+          <div class="settings-row" onclick="Profile.openHelpModal()">
+            <div class="settings-row-left">
+              <span class="settings-icon">🛟</span>
+              <span class="settings-label">Help</span>
+            </div>
+            <div class="settings-row-right">
+              <span class="settings-chevron">›</span>
+            </div>
+          </div>
+
+          <div class="settings-row" onclick="Profile.openAboutModal()">
+            <div class="settings-row-left">
+              <span class="settings-icon">ℹ️</span>
+              <span class="settings-label">About SocialPulse</span>
+            </div>
+            <div class="settings-row-right">
+              <span class="settings-chevron">›</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Login & Accounts -->
+        <div class="settings-section">
+          <div class="settings-section-header">Login</div>
+
+          <div class="settings-row" onclick="Profile.closeSettingsAndActivity(); Auth.openModal('login');">
+            <div class="settings-row-left">
+              <span class="settings-icon" style="color: var(--accent-blue);">➕</span>
+              <span class="settings-label" style="color: var(--accent-blue); font-weight: 600;">Add / Switch
+                Account</span>
+            </div>
+            <div class="settings-row-right">
+              <span class="settings-chevron">›</span>
+            </div>
+          </div>
+
+          <div class="settings-row" onclick="Profile.closeSettingsAndActivity(); Auth.logout();">
+            <div class="settings-row-left">
+              <span class="settings-icon" style="color: var(--accent-heart);">🚪</span>
+              <span class="settings-label" style="color: var(--accent-heart); font-weight: 600;">Log Out</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 7: YOUR ACTIVITY CENTER
+       ========================================== -->
+  <div class="modal-backdrop" id="your-activity-modal">
+    <div class="modal-box activity-modal-box"
+      style="max-width: 660px; max-height: 90vh; padding: 0; display: flex; flex-direction: column;">
+      <div class="activity-modal-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button class="settings-back-btn" onclick="Profile.backToSettings()"><svg viewBox="0 0 24 24" width="22"
+              height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12" />
+              <polyline points="12 19 5 12 12 5" />
+            </svg></button>
+          <div>
+            <h3 class="modal-title" style="margin: 0; font-size: 18px;">Your activity</h3>
+            <span style="font-size: 12px; color: var(--text-secondary);">One place to manage your likes, comments, and
+              deleted content</span>
+          </div>
+        </div>
+        <button class="modal-close-btn"
+          onclick="document.getElementById('your-activity-modal').classList.remove('open')">✕</button>
+      </div>
+
+      <!-- Navigation filter pills -->
+      <div class="activity-tabs-bar">
+        <button class="activity-tab-btn active" data-act-tab="likes" onclick="Profile.switchActivityTab('likes')">
+          ❤️ Liked <span class="activity-pill-count" id="act-count-likes">0</span>
+        </button>
+        <button class="activity-tab-btn" data-act-tab="saved" onclick="Profile.switchActivityTab('saved')">
+          🔖 Saved <span class="activity-pill-count" id="act-count-saved">0</span>
+        </button>
+        <button class="activity-tab-btn" data-act-tab="comments" onclick="Profile.switchActivityTab('comments')">
+          💬 Comments <span class="activity-pill-count" id="act-count-comments">0</span>
+        </button>
+        <button class="activity-tab-btn" data-act-tab="deleted" onclick="Profile.switchActivityTab('deleted')">
+          🗑️ Deleted <span class="activity-pill-count" id="act-count-deleted">0</span>
+        </button>
+        <button class="activity-tab-btn" data-act-tab="time" onclick="Profile.switchActivityTab('time')">
+          ⏱️ Time Spent
+        </button>
+      </div>
+
+      <!-- Main Activity Tab Body -->
+      <div class="activity-modal-body" id="activity-modal-body" style="overflow-y: auto; flex: 1; padding: 18px;">
+        <!-- Populated dynamically by Profile.loadActivityData(tab) -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 8: SOCIALPULSE AI ASSISTANT (Inspired by Meta AI)
+       ========================================== -->
+  <div class="modal-backdrop" id="ai-assistant-modal">
+    <div class="modal-box"
+      style="max-width: 480px; max-height: 85vh; display: flex; flex-direction: column; padding: 0;">
+      <div class="modal-header" style="border-bottom: 1px solid var(--border-color); padding: 14px 18px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div
+            style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #a855f7, #3b82f6); display: flex; align-items: center; justify-content: center; font-size: 16px;">
+            ✨</div>
+          <div>
+            <h3 class="modal-title" style="font-size: 16px;">SocialPulse AI Assistant</h3>
+            <span style="font-size: 11px; color: #86efac;">● Online & ready to help</span>
+          </div>
+        </div>
+        <button class="modal-close-btn"
+          onclick="document.getElementById('ai-assistant-modal').classList.remove('open')">✕</button>
+      </div>
+
+      <div class="ai-chat-body" id="ai-chat-messages"
+        style="flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; max-height: 52vh;">
+        <div class="ai-msg bot">
+          <div class="ai-msg-bubble">
+            👋 Hi there! I'm your SocialPulse AI Assistant. How can I help you today? Ask me for creative photo captions,
+            photography tips, or how to manage your privacy settings!
+          </div>
+        </div>
+        <div class="ai-quick-prompts">
+          <button class="ai-prompt-chip"
+            onclick="Profile.sendAiQuickPrompt('Generate 3 creative captions for a sunset photo')">🌅 Sunset caption
+            ideas</button>
+          <button class="ai-prompt-chip" onclick="Profile.sendAiQuickPrompt('How do I make my account private?')">🔒 How
+            to go private</button>
+          <button class="ai-prompt-chip"
+            onclick="Profile.sendAiQuickPrompt('Tips to get more likes and views on reels')">🎬 Reel viral tips</button>
+          <button class="ai-prompt-chip" onclick="Profile.sendAiQuickPrompt('How does Recently Deleted work?')">🗑️ How
+            to restore deleted posts</button>
+        </div>
+      </div>
+
+      <form class="ai-chat-input-bar" id="ai-chat-form" onsubmit="Profile.handleAiChatSubmit(event)"
+        style="display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--border-color); background: var(--bg-secondary);">
+        <input type="text" id="ai-chat-input" placeholder="Ask SocialPulse AI anything..."
+          style="flex: 1; padding: 10px 14px; border-radius: var(--radius-full); border: 1px solid var(--border-color); background: var(--bg-primary); color: #fff; font-size: 13px;" />
+        <button type="submit" class="btn-primary"
+          style="padding: 0 16px; border-radius: var(--radius-full);">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 5: AUTH (SIGN IN / SIGN UP)
+       ========================================== -->
+  <div class="modal-backdrop" id="auth-modal">
+    <div class="modal-box" style="max-width: 440px;">
+      <div class="modal-header" style="justify-content: flex-end;">
+        <button class="modal-close-btn" id="close-auth-modal">✕</button>
+      </div>
+
+      <div class="modal-body" style="padding-top: 0;">
+        <div style="text-align: center; margin-bottom: 20px;">
+          <div class="logo-icon" style="margin: 0 auto 10px; width: 44px; height: 44px;">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2.3"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 12h3.2l2.6-7.5 4.4 15 3.8-11 2.3 5.5h2.7" />
+            </svg>
+          </div>
+          <h2 style="font-size: 22px; font-weight: 800;">SocialPulse</h2>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Sign in to see photos and videos
+            from friends.</p>
+        </div>
+
+        <div style="display: flex; border-bottom: 1px solid var(--border-color); margin-bottom: 20px;">
+          <button type="button" class="auth-tab active" data-mode="login"
+            style="flex: 1; padding: 10px; font-weight: 700; font-size: 14px; border-bottom: 2px solid var(--text-primary); color: #fff;">Log
+            In</button>
+          <button type="button" class="auth-tab" data-mode="register"
+            style="flex: 1; padding: 10px; font-weight: 600; font-size: 14px; color: var(--text-muted);">Sign
+            Up</button>
+        </div>
+
+        <div
+          style="margin-bottom: 20px; background: rgba(255,255,255,0.03); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+          <p
+            style="font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">
+            ⚡ 1-Click Quick Demo Login:</p>
+          <div id="demo-users-list" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+        </div>
+
+        <form id="login-form" style="display: flex; flex-direction: column; gap: 12px;">
+          <div id="login-error" style="color: var(--accent-heart); font-size: 13px;"></div>
+          <input type="text" id="login-identifier" placeholder="Username or email" required
+            style="padding: 12px 14px; font-size: 14px;" />
+          <input type="password" id="login-password" placeholder="Password (default: password123)" required
+            style="padding: 12px 14px; font-size: 14px;" />
+          <button type="submit" class="btn-primary" style="padding: 12px; font-size: 14px; margin-top: 6px;">Log
+            In</button>
+        </form>
+
+        <form id="register-form" style="display: none; flex-direction: column; gap: 12px;">
+          <div id="reg-error" style="color: var(--accent-heart); font-size: 13px;"></div>
+          <input type="text" id="reg-fullname" placeholder="Full Name" required
+            style="padding: 12px 14px; font-size: 14px;" />
+          <input type="text" id="reg-username" placeholder="Username (letters & numbers)" required
+            style="padding: 12px 14px; font-size: 14px;" />
+          <input type="email" id="reg-email" placeholder="Email address" required
+            style="padding: 12px 14px; font-size: 14px;" />
+          <input type="password" id="reg-password" placeholder="Password (min 6 characters)" required
+            style="padding: 12px 14px; font-size: 14px;" />
+          <button type="submit" class="btn-primary" style="padding: 12px; font-size: 14px; margin-top: 6px;">Sign
+            Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 6: POST DETAIL & COMMENTS
+       ========================================== -->
+  <div class="modal-backdrop" id="post-detail-modal">
+    <div class="post-modal-content">
+      <div class="post-modal-media">
+        <img id="modal-post-image" src="" alt="Post image" />
+      </div>
+
+      <div class="post-modal-sidebar">
+        <div class="post-header" style="border-bottom: 1px solid var(--border-color);">
+          <div class="post-author-link">
+            <img id="modal-author-avatar" src=""
+              style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;" />
+            <span class="post-username" id="modal-author-username"></span>
+          </div>
+          <button class="modal-close-btn" id="close-post-detail-modal">✕</button>
+        </div>
+
+        <div class="modal-comments-scroll" id="modal-comments-list">
+          <div class="comment-row" style="padding-bottom: 10px; border-bottom: 1px solid var(--border-color);">
+            <div>
+              <span class="comment-user" id="modal-caption-username"></span>
+              <span class="comment-text" id="modal-post-caption"></span>
+            </div>
+          </div>
+        </div>
+
+        <form id="modal-comment-form" class="post-add-comment-box" style="margin-top: auto;">
+          <input type="text" id="modal-comment-input" class="comment-input" placeholder="Add a comment..." />
+          <button type="submit" class="comment-post-btn active">Post</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 7: EDIT PROFILE
+       ========================================== -->
+  <div class="modal-backdrop" id="edit-profile-modal">
+    <div class="modal-box" style="max-width: 480px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Edit Profile</h3>
+        <button class="modal-close-btn" id="close-edit-modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="edit-profile-form" style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <img id="edit-avatar-preview" src=""
+              style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover;" />
+            <div>
+              <label for="edit-avatar-file" class="btn-secondary" style="cursor: pointer; font-size: 13px;">Change
+                Photo</label>
+              <input type="file" id="edit-avatar-file" accept="image/*" style="display: none;" />
+            </div>
+          </div>
+
+          <div>
+            <label
+              style="font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; display: block;">Username:</label>
+            <input type="text" id="edit-username" required style="width: 100%; padding: 10px 14px; font-size: 14px;" placeholder="username" />
+          </div>
+
+          <div>
+            <label
+              style="font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; display: block;">Full Name:</label>
+            <input type="text" id="edit-fullname" required style="width: 100%; padding: 10px 14px; font-size: 14px;" placeholder="Your Name" />
+          </div>
+
+          <div>
+            <label
+              style="font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; display: block;">Bio:</label>
+            <textarea id="edit-bio" rows="2"
+              style="width: 100%; padding: 10px 14px; font-size: 14px; resize: none;"></textarea>
+          </div>
+
+          <div>
+            <label
+              style="font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; display: block;">Website:</label>
+            <input type="url" id="edit-website" placeholder="https://yourportfolio.com"
+              style="width: 100%; padding: 10px 14px; font-size: 14px;" />
+          </div>
+
+          <div>
+            <label
+              style="font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; display: block;">Location:</label>
+            <input type="text" id="edit-location" placeholder="City, Country"
+              style="width: 100%; padding: 10px 14px; font-size: 14px;" />
+          </div>
+
+          <button type="submit" class="btn-primary" style="padding: 12px; margin-top: 6px;">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 8: STORY PREVIEW
+       ========================================== -->
+  <div class="modal-backdrop" id="story-preview-modal">
+    <div
+      style="position: relative; max-width: 420px; width: 90vw; height: 80vh; background: #000; border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column;">
+      <div style="height: 3px; background: rgba(255,255,255,0.3); width: 100%;">
+        <div style="height: 100%; background: #fff; width: 100%;" id="story-progress-bar"></div>
+      </div>
+      <div
+        style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; position: absolute; top: 3px; left: 0; right: 0; z-index: 10; background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 100%);">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <img id="story-preview-avatar" src=""
+            style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid #fff;" />
+          <div>
+            <span id="story-preview-user"
+              style="font-weight: 700; font-size: 14px; color: #fff; display: block;"></span>
+            <span id="story-preview-music"
+              style="font-size: 11px; color: rgba(255,255,255,0.85); display: none;"></span>
+          </div>
+        </div>
+        <button id="close-story-modal" style="color: #fff; font-size: 20px;">✕</button>
+      </div>
+      <div
+        style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img id="story-preview-img" src="" style="width: 100%; height: 100%; object-fit: cover;" />
+        <div id="story-preview-text"
+          style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; max-width: 85%; word-break: break-word; display: none; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">
+        </div>
+        <div id="story-preview-sticker"
+          style="position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); font-size: 40px; display: none; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 9: STORY CREATOR STUDIO
+       ========================================== -->
+  <div class="modal-backdrop" id="story-creator-modal">
+    <div class="story-creator-dialog">
+      <div class="modal-header" style="border-bottom: 1px solid var(--border-color); padding: 14px 20px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div
+            style="width: 24px; height: 24px; border-radius: 50%; background: #0095f6; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#ffffff" stroke-width="3"
+              stroke-linecap="round">
+              <line x1="12" x2="12" y1="5" y2="19" />
+              <line x1="5" x2="19" y1="12" y2="12" />
+            </svg>
+          </div>
+          <h3 class="modal-title" style="font-size: 16px;">Story Creator Studio</h3>
+        </div>
+        <button class="modal-close-btn" id="close-story-creator-modal">✕</button>
+      </div>
+
+      <div class="story-creator-body">
+        <!-- Canvas Preview on Left -->
+        <div class="story-canvas-panel">
+          <div class="story-canvas-wrapper" id="story-canvas">
+            <div class="story-canvas-placeholder" id="story-canvas-placeholder">
+              <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5;">
+                <rect width="18" height="18" x="3" y="3" rx="4" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <polyline points="21 15 16 10 5 21" />
+              </svg>
+              <p style="font-size: 14px; font-weight: 600;">Choose a photo for your story</p>
+              <p style="font-size: 12px; color: var(--text-muted);">Supports file upload or URL</p>
+            </div>
+            <img id="story-canvas-img" class="story-canvas-img filter-normal" alt="Story preview" />
+            <div id="story-canvas-music" class="story-canvas-music"></div>
+            <div id="story-canvas-text" class="story-canvas-text font-modern"></div>
+            <div id="story-canvas-sticker" class="story-canvas-sticker"></div>
+          </div>
+        </div>
+
+        <!-- Studio Tools on Right -->
+        <div class="story-tools-panel">
+          <form id="story-creator-form" style="display: flex; flex-direction: column; gap: 16px; height: 100%;">
+
+            <!-- Photo Upload / Dropzone -->
+            <div class="story-tool-section">
+              <span class="story-tool-label">1. Select Photo</span>
+              <div id="story-dropzone"
+                style="border: 2px dashed var(--border-light); border-radius: var(--radius-md); padding: 16px; text-align: center; cursor: pointer; background: var(--bg-secondary); transition: border-color 0.2s;">
+                <p style="font-size: 13px; font-weight: 600;">📁 Upload from Computer</p>
+                <p style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Click to browse image files</p>
+              </div>
+              <input type="file" id="story-file-input" accept="image/*" style="display: none;" />
+              <input type="url" id="story-url-input" placeholder="Or paste image URL (https://...)"
+                style="width: 100%; padding: 8px 12px; font-size: 12px;" />
+            </div>
+
+            <!-- Visual Filters -->
+            <div class="story-tool-section">
+              <span class="story-tool-label">2. Visual Filter</span>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <button type="button" class="filter-pill active" data-filter="normal">Normal</button>
+                <button type="button" class="filter-pill" data-filter="clarendon">Clarendon</button>
+                <button type="button" class="filter-pill" data-filter="vintage">Vintage</button>
+                <button type="button" class="filter-pill" data-filter="golden">Golden Hour</button>
+                <button type="button" class="filter-pill" data-filter="cyberpunk">Cyberpunk</button>
+                <button type="button" class="filter-pill" data-filter="noir">Noir</button>
+              </div>
+            </div>
+
+            <!-- Text Overlay & Typography -->
+            <div class="story-tool-section">
+              <span class="story-tool-label">3. Text Overlay & Typography</span>
+              <input type="text" id="story-text-overlay-input" placeholder="Type text to overlay on story..."
+                style="width: 100%; padding: 9px 12px; font-size: 13px;" />
+
+              <!-- Font Selector -->
+              <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px;">
+                <button type="button" class="font-style-btn active" data-font="modern">Modern</button>
+                <button type="button" class="font-style-btn" data-font="serif">Serif</button>
+                <button type="button" class="font-style-btn" data-font="neon">Neon Glow</button>
+                <button type="button" class="font-style-btn" data-font="handwritten">Handwritten</button>
+                <button type="button" class="font-style-btn" data-font="bold">Bold Impact</button>
+              </div>
+
+              <!-- Color Palette Swatches -->
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 4px;">
+                <div class="color-swatches-row">
+                  <div class="color-swatch active" data-color="#ffffff" style="background: #ffffff;"></div>
+                  <div class="color-swatch" data-color="#ffe600" style="background: #ffe600;"></div>
+                  <div class="color-swatch" data-color="#ff3366" style="background: #ff3366;"></div>
+                  <div class="color-swatch" data-color="#00f2fe" style="background: #00f2fe;"></div>
+                  <div class="color-swatch" data-color="#00e676" style="background: #00e676;"></div>
+                  <div class="color-swatch" data-color="#a855f7" style="background: #a855f7;"></div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="font-size: 11px; color: var(--text-muted);">Size:</span>
+                  <input type="range" id="story-font-size-slider" min="16" max="42" value="24"
+                    style="width: 80px; cursor: pointer;" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Music Soundtrack Tag -->
+            <div class="story-tool-section">
+              <span class="story-tool-label">4. Music Soundtrack</span>
+              <select id="story-music-select"
+                style="width: 100%; padding: 8px 12px; font-size: 12px; background: var(--bg-secondary); color: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+                <option value="">No Music</option>
+                <option value="Midnight City - M83">🎵 Midnight City • M83</option>
+                <option value="Golden Hour - JVKE">🎵 Golden Hour • JVKE</option>
+                <option value="Blinding Lights - The Weeknd">🎵 Blinding Lights • The Weeknd</option>
+                <option value="As It Was - Harry Styles">🎵 As It Was • Harry Styles</option>
+                <option value="Starboy - The Weeknd">🎵 Starboy • The Weeknd</option>
+                <option value="Lofi Chill Beats - Chillhop">🎵 Lofi Chill Beats • Chillhop</option>
+              </select>
+            </div>
+
+            <!-- Stickers & Emoji Reaction Tags -->
+            <div class="story-tool-section">
+              <span class="story-tool-label">5. Animated Stickers</span>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button type="button" class="story-sticker-pill" data-sticker="🔥">🔥 Lit</button>
+                <button type="button" class="story-sticker-pill" data-sticker="✨">✨ Sparkles</button>
+                <button type="button" class="story-sticker-pill" data-sticker="❤️">❤️ Love</button>
+                <button type="button" class="story-sticker-pill" data-sticker="🎉">🎉 Party</button>
+                <button type="button" class="story-sticker-pill" data-sticker="💯">💯 100</button>
+                <button type="button" class="story-sticker-pill" data-sticker="⚡">⚡ Energy</button>
+              </div>
+            </div>
+
+            <button type="submit" id="share-story-btn" class="btn-primary"
+              style="margin-top: auto; padding: 12px; font-size: 14px; font-weight: 700; border-radius: var(--radius-md);">
+              Share to Story
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       FLOATING SOCIALPULSE AI ASSISTANT BUTTON
+       ========================================== -->
+  <button class="ai-floating-fab" id="ai-floating-fab" title="Chat with SocialPulse AI Co-Pilot"
+    onclick="Profile.openAiAssistant();">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path
+        d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z" />
+    </svg>
+    <span>Ask AI</span>
+  </button>
+
+  <!-- JavaScript Modules -->
+  <script src="js/icons.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/story-creator.js"></script>
+  <script src="js/feed.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/reels.js"></script>
+  <script src="js/messages.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
